@@ -68,3 +68,6 @@ public class LCS128 {
         System.out.print(streak + ", " + streak2);
     }
 }
+
+//Time - O(n)
+//Space - O(n)
