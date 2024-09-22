@@ -1,4 +1,7 @@
 package subarray;
+
+import java.util.HashMap;
+
 /**
  * Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
  *
@@ -35,4 +38,31 @@ package subarray;
  * 0 <= nums[i] <= 109
  * **/
 public class ContinousSubArraySum523 {
+
+    public static Boolean checkSubarraySum(int[] nums, int k) throws Exception {
+        Boolean result = false;
+        if(nums == null){
+            throw new Exception("Invalid Input");
+        }
+        HashMap<Integer, Integer> modIndexMapping = new HashMap<>();
+        Integer runningSum = 0;
+        for(int i =0; i< nums.length; i++){
+            runningSum += nums[i];
+            int remainder = runningSum % k;
+            if(modIndexMapping.containsKey(remainder) == false){
+                modIndexMapping.put(remainder, i);
+            }else if(Math.abs(modIndexMapping.get(remainder) - i) > 1){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String args[]) throws Exception {
+        int[] nums = new int[]{23,2,4,6,7};
+        int[] nums1 = new int[]{23,2,6,4,7};
+        System.out.print(checkSubarraySum(nums, 6));
+        System.out.print(checkSubarraySum(nums1, 6));
+    }
 }
