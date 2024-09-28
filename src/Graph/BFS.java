@@ -5,6 +5,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * The time complexity of Breadth-First Search (BFS) using a queue is:
+ *
+ * Time Complexity: O(V + E)
+ * Where:
+ *
+ * V is the number of vertices (nodes).
+ * E is the number of edges.
+ * Explanation:
+ * Vertices (V): Each vertex is enqueued and dequeued exactly once in BFS.
+ * Edges (E): For each vertex, all its adjacent edges are explored once. Therefore, every edge is checked exactly once.
+ * Thus, the total time complexity is proportional to the number of vertices plus the number of edges, i.e.,
+ * 𝑂
+ * (
+ * 𝑉
+ * +
+ * 𝐸
+ * )
+ * O(V+E). This holds true for both directed and undirected graphs.
+ *
+ * **/
 public class BFS {
 
 

@@ -28,7 +28,7 @@ package SlidingWindow;
  * Input: nums = [1,2,3,4,2,3,1,4,2], k = 3
  * Output: [2.00000,3.00000,3.00000,3.00000,2.00000,3.00000,2.00000]
  *
- *
+ *≥
  * Constraints:
  *
  * 1 <= k <= nums.length <= 105

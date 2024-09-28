@@ -1,7 +1,29 @@
 package Graph;
 
 import java.util.*;
-
+/**
+ * The time complexity of Depth-First Search (DFS) using a stack (either an explicit stack in an iterative approach or the call stack in the recursive approach) is typically:
+ *
+ * Time Complexity: O(V + E)
+ * Where:
+ *
+ * V is the number of vertices (or nodes) in the graph.
+ * E is the number of edges in the graph.
+ * Explanation:
+ * Vertices: Each vertex is visited exactly once.
+ * Edges: Each edge is explored once when the algorithm checks the adjacent vertices of each node.
+ * Thus, the total work done is proportional to the number of vertices plus the number of edges, hence
+ * 𝑂
+ * (
+ * 𝑉
+ * +
+ * 𝐸
+ * )
+ * O(V+E). This applies to both the iterative version using an explicit stack and the recursive version using the function call stack.
+ *
+ * Time Complexity: O(V + E)
+ *
+ * **/
 public class DFS {
 
     public static void doDFS(Graph g, int source, int V){
@@ -36,3 +58,4 @@ public class DFS {
         doDFS(g, 0, V);
     }
 }
+
