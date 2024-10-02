@@ -1,0 +1,185 @@
+Time Complexity Cheat Sheet
+Time Complexity	Description	Big O Notation	Example	Code Snippet
+O(1)	Constant time	-	Accessing an array element	int x = arr[5];
+O(log n)	Logarithmic time	-	Binary search	int binarySearch(int arr[], int x) { /*...*/ }
+O(n)	Linear time	-	Finding an element in an array	for (int i = 0; i < n; i++) { /*...*/ }
+O(n log n)	Linearithmic time	-	Merge sort, quicksort	void mergeSort(int arr[], int l, int r) { /*...*/ }
+O(n²)	Quadratic time	-	Bubble sort, selection sort	for (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { /*...*/ } }
+O(n³)	Cubic time	-	3D Matrix multiplication	for (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { for (int k = 0; k < n; k++) { /*...*/ } } }
+O(2^n)	Exponential time	-	Fibonacci (recursive)	int fib(int n) { return (n <= 1) ? n : fib(n - 1) + fib(n - 2); }
+O(n!)	Factorial time	-	Permutations	void permute(int arr[], int l, int r) { /*...*/ }
+
+
+Here's a guide on various for loop variations in programming, along with their corresponding time complexities. The examples provided will be in Java, but the concepts can easily be applied to other languages as well.
+
+1. Simple for Loop
+Structure:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    // O(1) operations
+}
+Time Complexity: O(n)
+
+Example:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    System.out.println(i); // O(n)
+}
+2. Nested for Loop
+Structure:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+        // O(1) operations
+    }
+}
+Time Complexity: O(n * m)
+
+Example:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        System.out.println(i + ", " + j); // O(n²)
+    }
+}
+3. Loop with Variable Increment
+Structure:
+
+java
+Copy code
+for (int i = 0; i < n; i += k) {
+    // O(1) operations
+}
+Time Complexity: O(n/k) = O(n)
+
+Example:
+
+java
+Copy code
+for (int i = 0; i < n; i += 2) {
+    System.out.println(i); // O(n/2) = O(n)
+}
+4. Looping Through an Array
+Structure:
+
+java
+Copy code
+for (int i = 0; i < arr.length; i++) {
+    // O(1) operations
+}
+Time Complexity: O(n)
+
+Example:
+
+java
+Copy code
+int[] arr = {1, 2, 3, 4, 5};
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]); // O(n)
+}
+5. Looping Through a 2D Array
+Structure:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+        // O(1) operations
+    }
+}
+Time Complexity: O(n * m)
+
+Example:
+
+java
+Copy code
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.println(matrix[i][j]); // O(n * m)
+    }
+}
+6. Loop with Conditional Statements
+Structure:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    if (condition) {
+        // O(1) operations
+    }
+}
+Time Complexity: Depends on how often the condition is true, but worst case is O(n).
+
+Example:
+
+java
+Copy code
+for (int i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+        System.out.println(i); // O(n)
+    }
+}
+7. Exponential Growth in Loop
+Structure:
+
+java
+Copy code
+for (int i = 1; i < n; i *= 2) {
+    // O(1) operations
+}
+Time Complexity: O(log n)
+
+Example:
+
+java
+Copy code
+for (int i = 1; i < n; i *= 2) {
+    System.out.println(i); // O(log n)
+}
+8. Loop with Recursion
+Sometimes, loops are combined with recursive calls which can lead to complex time complexities.
+
+Structure:
+
+java
+Copy code
+void recursiveFunction(int n) {
+    for (int i = 0; i < n; i++) {
+        recursiveFunction(n - 1);
+    }
+}
+Time Complexity: O(n!)
+
+Example:
+
+java
+Copy code
+void printPermutations(String str, String answer) {
+    if (str.length() == 0) {
+        System.out.println(answer);
+        return;
+    }
+    for (int i = 0; i < str.length(); i++) {
+        printPermutations(str.substring(0, i) + str.substring(i + 1), answer + str.charAt(i)); // O(n!)
+    }
+}
+Summary of Time Complexities for Common for Loop Variations
+O(1): Simple constant-time operations.
+O(n): Single loop iterating through an array or list.
+O(log n): Loop doubling the index.
+O(n²): Nested loops, iterating through the same data structure.
+O(n * m): Nested loops with two different ranges.
+O(n!): Recursive functions generating permutations.

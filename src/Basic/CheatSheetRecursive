@@ -1,0 +1,159 @@
+
+Here's a guide on various variations of recursive loops along with their corresponding time and space complexities. Recursive functions are an important concept in computer science, and understanding their complexities is crucial for efficient programming.
+
+1. Simple Recursive Function
+Structure:
+
+java
+Copy code
+int recursiveFunction(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return recursiveFunction(n - 1) + recursiveFunction(n - 2); // Fibonacci
+}
+Time Complexity: O(2^n)
+Space Complexity: O(n) (due to the call stack)
+
+2. Tail Recursion
+Structure:
+
+java
+Copy code
+int tailRecursive(int n, int accumulator) {
+    if (n == 0) {
+        return accumulator;
+    }
+    return tailRecursive(n - 1, n + accumulator);
+}
+
+int mainFunction(int n) {
+    return tailRecursive(n, 0);
+}
+Time Complexity: O(n)
+Space Complexity: O(1) (tail recursion can be optimized by the compiler)
+
+3. Recursive Function with Loop
+Structure:
+
+java
+Copy code
+void recursiveWithLoop(int n) {
+    if (n <= 0) {
+        return;
+    }
+    for (int i = 0; i < n; i++) {
+        System.out.print("*");
+    }
+    System.out.println();
+    recursiveWithLoop(n - 1);
+}
+Time Complexity: O(n²) (due to the loop inside the recursive call)
+Space Complexity: O(n) (due to the call stack)
+
+4. Divide and Conquer
+Structure:
+
+java
+Copy code
+int mergeSort(int[] arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+    return 0; // Sorting in place
+}
+Time Complexity: O(n log n)
+Space Complexity: O(n) (due to auxiliary space for merging)
+
+5. Backtracking
+Structure:
+
+java
+Copy code
+void backtrack(int[] nums, List<List<Integer>> result, List<Integer> tempList, boolean[] used) {
+    if (tempList.size() == nums.length) {
+        result.add(new ArrayList<>(tempList));
+        return;
+    }
+    for (int i = 0; i < nums.length; i++) {
+        if (used[i]) continue;
+        used[i] = true;
+        tempList.add(nums[i]);
+        backtrack(nums, result, tempList, used);
+        tempList.remove(tempList.size() - 1);
+        used[i] = false;
+    }
+}
+Time Complexity: O(n!) (generating permutations)
+Space Complexity: O(n) (due to the call stack and temporary list)
+
+6. Recursion with Dynamic Programming (Memoization)
+Structure:
+
+java
+Copy code
+int fib(int n, Map<Integer, Integer> memo) {
+    if (n <= 1) {
+        return n;
+    }
+    if (memo.containsKey(n)) {
+        return memo.get(n);
+    }
+    int result = fib(n - 1, memo) + fib(n - 2, memo);
+    memo.put(n, result);
+    return result;
+}
+Time Complexity: O(n)
+Space Complexity: O(n) (due to memoization storage)
+
+7. Recursion for Tree Traversal
+Structure:
+
+java
+Copy code
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+void preOrder(TreeNode node) {
+    if (node == null) return;
+    System.out.print(node.val + " ");
+    preOrder(node.left);
+    preOrder(node.right);
+}
+Time Complexity: O(n) (visiting each node once)
+Space Complexity: O(h) (where h is the height of the tree, due to the call stack)
+
+8. Recursive Factorial Calculation
+Structure:
+
+java
+Copy code
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+Time Complexity: O(n)
+Space Complexity: O(n) (due to the call stack)
+
+Summary Table of Recursive Function Variations
+Variation	Time Complexity	Space Complexity
+Simple Recursive	O(2^n)	O(n)
+Tail Recursion	O(n)	O(1)
+Recursive Function with Loop	O(n²)	O(n)
+Divide and Conquer (Merge Sort)	O(n log n)	O(n)
+Backtracking	O(n!)	O(n)
+Recursion with Memoization	O(n)	O(n)
+Tree Traversal	O(n)	O(h)
+Recursive Factorial	O(n)	O(n)
