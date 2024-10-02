@@ -3,7 +3,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
      output: 'export', // Enable static export
-      basePath: isProd ? '/ui' : '', // Set the base path for GitHub Pages
+      basePath: isProd ? '/app' : '', // Set the base path for GitHub Pages
       trailingSlash: true, // Ensure URLs work correctly on GitHub Pages
       images: {
         unoptimized: true, // Disable image optimization
