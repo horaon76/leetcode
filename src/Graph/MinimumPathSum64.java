@@ -190,17 +190,24 @@ public class MinimumPathSum64 {
                 {4, 2, 1}
         };
 
-        int result = minPathSumBFS(grid);
+        int[][] grid2 = {
+                {2, 10000, 10000, 10000},
+                {3, 4, 10000, 10000},
+                {6, 5, 7, 10000},
+                {4, 1, 8, 3}
+        };
+
+        int result = minPathSumBFS(grid2);
         System.out.println("Minimum Path Sum using BFS: " + result);
 
-        int result1 = minPathSumDFS(grid);
-        System.out.println("Minimum Path Sum: " + result1);
-
-        int result2 = minPathSumDP(grid);
-        System.out.println("Minimum Path Sum: " + result2);
-
-        int result3 = minPathSumDFSIterative(grid1);
-        System.out.println("Minimum Path Sum: " + result3);
+//        int result1 = minPathSumDFS(grid);
+//        System.out.println("Minimum Path Sum: " + result1);
+//
+//        int result2 = minPathSumDP(grid);
+//        System.out.println("Minimum Path Sum: " + result2);
+//
+//        int result3 = minPathSumDFSIterative(grid1);
+//        System.out.println("Minimum Path Sum: " + result3);
 
     }
 }

@@ -47,6 +47,7 @@ public class MaxSubArray53 {
         return maxSum;
 
     }
+
     public static int maxSubArray(int[] nums) {
         int res = nums[0];
 
