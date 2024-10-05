@@ -1,4 +1,4 @@
-package subarray;
+package Subarray;
 
 public class MaxSumCircularSubArray918 {
 

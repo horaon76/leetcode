@@ -1,4 +1,4 @@
-package subarray;
+package Subarray;
 
 /**
  * Given an integer array nums, find the
