@@ -1,4 +1,4 @@
-Certainly! Let’s take the e-commerce example from above and explain how the SOLID principles can be applied in detail. This will demonstrate how each principle contributes to a well-structured and maintainable system.
+Let’s take the e-commerce example from above and explain how the SOLID principles can be applied in detail. This will demonstrate how each principle contributes to a well-structured and maintainable system.
 
 ### 1. Single Responsibility Principle (SRP)
 
