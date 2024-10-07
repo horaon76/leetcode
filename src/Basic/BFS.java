@@ -1,6 +1,7 @@
-package Graph;
+package Basic;
 
-import java.util.ArrayList;
+import Graph.Graph;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -37,13 +38,37 @@ public class BFS {
         List<List<Integer>> adjList= g.getAdjList();
         while(!queue.isEmpty()){
             int current = queue.poll();
-            System.out.println(current);
+            System.out.print(current + " ");
             for(int node: adjList.get(current)){
                 if(!visited[node]){
                     visited[node] = true;
                     queue.offer(node);
                 }
             }
+            System.out.println("");
+        }
+    }
+
+    public static void doBFSConnected2(Graph g, int source, int V){
+        boolean[] visited = new boolean[V];
+        Queue<Integer> queue = new LinkedList<>();
+        visited[source] = true;
+        queue.offer(source);
+        List<List<Integer>> adjList= g.getAdjList();
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            System.out.println("");
+            for (int i = 0; i < size; i++) {
+                int current = queue.poll();
+                System.out.print(current + " ");
+                for(int node: adjList.get(current)){
+                    if(!visited[node]){
+                        visited[node] = true;
+                        queue.offer(node);
+                    }
+                }
+            }
+
         }
     }
 
@@ -56,6 +81,8 @@ public class BFS {
         g.addEdge(1,4);
         g.addEdge(2,4);
         doBFSConnected(g, 0, V);
+        System.out.println("---------------------");
+        doBFSConnected2(g,0, V);
     }
 }
 //O(V+E)

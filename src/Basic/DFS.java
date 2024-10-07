@@ -1,4 +1,6 @@
-package Graph;
+package Basic;
+
+import Graph.Graph;
 
 import java.util.*;
 /**
