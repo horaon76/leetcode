@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class ClimbingStairs70 {
     private Map<Integer, Integer> memo = new HashMap<>();
-
+    //Time Complexity: 𝑂 ( 2 𝑛 ) O(2 n ) Space Complexity: 𝑂 ( 𝑛 ) O(n) (call stack)
     public static int climbStairs1(int n) {
         if (n <= 2) {
             return n;
