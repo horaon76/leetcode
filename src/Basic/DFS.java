@@ -51,13 +51,13 @@ public class DFS {
     public static void main(String args[]){
         int V = 6;
         Graph g = new Graph(V);
+        g.addEdge(1,2);
         g.addEdge(1,0);
-        g.addEdge(0,2);
-        g.addEdge(2,1);
-        g.addEdge(0,3);
-        g.addEdge(1,4);
+        g.addEdge(2,0);
+        g.addEdge(2,3);
+        g.addEdge(2,4);
         //0 3 2 1 4
-        doDFS(g, 0, V);
+        doDFS(g, 1, V);
     }
 }
 
