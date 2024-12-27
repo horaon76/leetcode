@@ -47,7 +47,6 @@ public class subArray {
             for (int j = i; j < n; j++) {
                 // Dynamically build the subarray string
                 subArrayStr.append(arr[j]).append(" ");
-
                 // Print the subarray
                 System.out.println(subArrayStr.toString().trim());
             }
