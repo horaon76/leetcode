@@ -37,6 +37,7 @@ import java.util.HashMap;
  * 1 <= nums.length <= 105
  * 0 <= nums[i] <= 109
  * **/
+//https://www.youtube.com/watch?v=tW4BBWF8VJk
 public class ContinousSubArraySum523 {
 
     public static Boolean checkSubarraySum(int[] nums, int k) throws Exception {

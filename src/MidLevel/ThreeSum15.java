@@ -99,7 +99,6 @@ public class ThreeSum15 {
                 int complement = -nums[i] - nums[j];
                 if (seen.contains(complement)) {
                     result.add(Arrays.asList(nums[i], nums[j], complement));
-
                     // Skip duplicates
                     while (j + 1 < nums.length && nums[j] == nums[j + 1]) j++;
                 }

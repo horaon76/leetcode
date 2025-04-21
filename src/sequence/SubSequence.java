@@ -1,6 +1,9 @@
 package sequence;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * 1234 - 2^n -1 subsequence
@@ -43,10 +46,36 @@ public class SubSequence {
         }
     }
 
+    public static List<List<Integer>> generateSubSequence(int[] nums){
+        List<List<Integer>> result = new ArrayList<>();
+        generateSubSequenceBackTrack(nums, 0, new ArrayList<>(),  result);
+//        result.sort(Comparator.comparingInt(List::size));
+        System.out.println(result);
+        return result;
+    }
+
+    public static void generateSubSequenceBackTrack(int[] nums,  int index, List<Integer> currentList, List<List<Integer>> result){
+        // Base case: if we've processed all elements
+
+        if (index == nums.length) {
+            result.add(new ArrayList<>(currentList));
+            return;
+        }
+        int currentNumber = nums[index];
+        // Include the current element
+        currentList.add(nums[index]);
+        generateSubSequenceBackTrack(nums, index + 1, currentList, result);
+
+        // Backtrack and exclude the current element
+        currentList.remove(currentList.size() - 1);
+        generateSubSequenceBackTrack(nums, index + 1, currentList, result);
+    }
 
     public static void main(String args[]) {
         int nums[] = new int[]{1, 2, 3, 4};
         printSubsequences(nums.length, nums);
+        System.out.println("Backtrack");
+        generateSubSequence(nums);
     }
 
 }

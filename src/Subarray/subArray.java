@@ -70,11 +70,32 @@ public class subArray {
             }
         }
     }
+    public static List<List<Integer>> generateFixedLengthSubarrays(int[] array, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        int n = array.length;
 
+        for (int i = 0; i <= n - k; i++) {
+            List<Integer> subarray = new ArrayList<>();
+            for (int j = 0; j < k; j++) {
+                subarray.add(array[i + j]); // Add elements from i to i + k
+            }
+            result.add(subarray);
+        }
+        return result;
+    }
     public static void main(String[] args) {
         int nums[] = new int[]{1, 2, 3, 4};
 //        subArray(nums.length, nums);
-        subArrayWithArray(nums.length, nums);
+//        subArrayWithArray(nums.length, nums);
+
+        int[] array = {1, 2, 3, 4};
+        int k = 2; // Fixed length of subarrays
+        List<List<Integer>> subarrays = generateFixedLengthSubarrays(array, k);
+
+        // Print all fixed-length subarrays
+        for (List<Integer> subarray : subarrays) {
+            System.out.println(subarray);
+        }
 
     }
 

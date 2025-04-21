@@ -19,12 +19,9 @@ public class Kahn {
         Queue<Integer> queue = new LinkedList<>();
         // Update in-degree based on edges
         graph.forEach((key, value) -> {
-            inDegree.put(key, 0);
-            if(!value.isEmpty()){
-                for (Integer neighbor : value) {
-                    Integer degree = inDegree.getOrDefault(neighbor, 0);
-                    inDegree.putIfAbsent(neighbor, degree);
-                }
+            inDegree.putIfAbsent(key, 0); // make sure source node is there
+            for (Integer neighbor : value) {
+                inDegree.put(neighbor, inDegree.getOrDefault(neighbor, 0) + 1);
             }
         });
         inDegree.forEach((key, value) -> {

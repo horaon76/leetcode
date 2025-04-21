@@ -50,5 +50,4 @@ public class PriorityQueueExamples {
         System.out.println("---------------------");
         customPQ();
     }
-
 }

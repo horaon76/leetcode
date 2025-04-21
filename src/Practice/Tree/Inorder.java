@@ -104,6 +104,7 @@ public class Inorder {
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
+        root.left.left.right = new TreeNode(6);
         System.out.println("Inorder");
         doInorder(root);
         System.out.println("Inorder - Iterative");

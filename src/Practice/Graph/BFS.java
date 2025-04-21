@@ -11,6 +11,15 @@ public class BFS {
     }
 
     public static void doBFS(int source){
+        if (graph == null || graph.isEmpty()) {
+            System.out.println("Graph is empty. Nothing to traverse.");
+            return;
+        }
+
+        if (!graph.containsKey(source)) {
+            System.out.println("Source node " + source + " does not exist in the graph.");
+            return;
+        }
         Queue<Integer> nodeQueue = new LinkedList<>();
         Set<Integer> nodeVisited = new HashSet<>();
         nodeQueue.add(source);

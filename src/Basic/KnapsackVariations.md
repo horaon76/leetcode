@@ -77,6 +77,53 @@ public class FractionalKnapsack {
 - **Time Complexity**: \(O(n \log n)\) (for sorting)
 - **Space Complexity**: \(O(n)\)
 
+
+class Item {
+int value, weight;
+
+    Item(int v, int w) {
+        value = v;
+        weight = w;
+    }
+}
+
+class FractionalKnapsack {
+
+    public static double getMaxValue(Item[] items, int W) {
+        // Sort by value/weight ratio in descending order
+        Arrays.sort(items, (a, b) -> Double.compare((double)b.value / b.weight, (double)a.value / a.weight));
+
+        double totalValue = 0.0;
+
+        for (Item item : items) {
+            if (W >= item.weight) {
+                // Take whole item
+                W -= item.weight;
+                totalValue += item.value;
+            } else {
+                // Take fractional part
+                totalValue += ((double)item.value / item.weight) * W;
+                break;
+            }
+        }
+
+        return totalValue;
+    }
+
+    public static void main(String[] args) {
+        Item[] items = {
+            new Item(60, 10),
+            new Item(100, 20),
+            new Item(120, 30)
+        };
+        int capacity = 50;
+
+        double result = getMaxValue(items, capacity);
+        System.out.println("Maximum value: " + result); // Should print 240.0
+    }
+}
+
+
 ---
 
 ### **3. Unbounded Knapsack Problem**

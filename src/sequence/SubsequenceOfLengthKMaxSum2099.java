@@ -57,6 +57,34 @@ public class SubsequenceOfLengthKMaxSum2099 {
 
         return ans;
     }
+
+    public static List<Integer> maxSubsequence1(int[] nums, int k) {
+        // Max-Queue to store elements with their indices
+        PriorityQueue<int[]> maxQueue = new PriorityQueue<>((a, b) -> Integer.compare(b[0], a[0]));
+
+        // Insert elements into max-queue with their index
+        for (int i = 0; i < nums.length; i++) {
+            maxQueue.offer(new int[]{nums[i], i});
+        }
+
+        // List to store the selected k largest elements with indices
+        List<int[]> selected = new ArrayList<>();
+        while (selected.size() < k) {
+            selected.add(maxQueue.poll());
+        }
+
+        // Sort selected elements by their original indices to maintain order
+        selected.sort((a, b) -> Integer.compare(a[1], b[1]));
+
+        // Extract the values from the sorted selected elements
+        List<Integer> result = new ArrayList<>();
+        for (int[] element : selected) {
+            result.add(element[0]);
+        }
+
+        return result;
+    }
+
     public static void main(String args[]){
         int[] nums = new int[]{2,1,3,3};
         int[] nums1 = new int[]{-1,-2,3,4};

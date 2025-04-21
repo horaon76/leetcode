@@ -2,6 +2,8 @@ package Practice.Graph;
 
 import java.sql.Statement;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DFS {
 
@@ -38,6 +40,16 @@ public class DFS {
         addEdge(2,0);
         addEdge(2,3);
         addEdge(2,4);
-        doDFS(1);
+//        doDFS(1);
+        List<Integer> numbers = IntStream.rangeClosed(1, 100)
+                .boxed()
+                .collect(Collectors.toList());
+        Random rand = new Random();
+        List<Integer> randomNumbers = IntStream.range(0, 10)
+                .map(i -> rand.nextInt(100)) // random number from 0 to 999
+                .boxed()
+                .collect(Collectors.toList());
+        System.out.println(randomNumbers.toString());
     }
+
 }

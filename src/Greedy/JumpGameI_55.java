@@ -1,4 +1,5 @@
 package Greedy;
+//https://www.youtube.com/watch?v=muDPTDrpS28&t=622s
 
 public class JumpGameI_55 {
     public boolean canJump(int[] nums) {

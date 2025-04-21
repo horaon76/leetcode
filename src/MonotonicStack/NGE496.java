@@ -69,3 +69,87 @@ public class NGE496 {
         System.out.println(Arrays.toString(nextGreaterElement(nums, nums2)));
     }
 }
+
+//Great! Let's dry run the updated input:
+//
+//```java
+//int[] nums1 = {4, 1, 2};
+//int[] nums2 = {4, 2, 1, 8};
+//```
+//
+//---
+//
+//## 🔁 Goal:
+//For each element in `nums1`, find the **next greater element in `nums2`** after its first appearance.
+//We'll use a **monotonic stack** to build a `map` of each number's next greater.
+//
+//---
+//
+//## 🧠 Step-by-Step Dry Run — Build `map` from `nums2`
+//
+//Initial state:
+//- `stack = []`
+//- `map = {}`
+//
+//---
+//
+//### 🔹 Step 1: num = 4
+//- Stack empty → push `4`
+//- `stack = [4]`
+//
+//---
+//
+//### 🔹 Step 2: num = 2
+//- `2 < stack.peek()` → push `2`
+//- `stack = [4, 2]`
+//
+//---
+//
+//### 🔹 Step 3: num = 1
+//- `1 < stack.peek()` → push `1`
+//- `stack = [4, 2, 1]`
+//
+//---
+//
+//### 🔹 Step 4: num = 8
+//Now we start popping since `8 > top`
+//
+//1. `8 > 1` → pop `1`, `map[1] = 8`
+//2. `8 > 2` → pop `2`, `map[2] = 8`
+//3. `8 > 4` → pop `4`, `map[4] = 8`
+//
+//- `stack = []`
+//- Push `8`
+//- `stack = [8]`
+//
+//---
+//
+//### ✅ Final map:
+//```java
+//{
+//  1 = 8,
+//  2 = 8,
+//  4 = 8
+//}
+//```
+//
+//---
+//
+//## 🔍 Now Lookup for `nums1 = [4, 1, 2]`
+//
+//| Number | Lookup in map | Result |
+//|--------|----------------|--------|
+//| 4      | map[4] = 8     | ✅     |
+//| 1      | map[1] = 8     | ✅     |
+//| 2      | map[2] = 8     | ✅     |
+//
+//---
+//
+//## ✅ Final Output:
+//```java
+//[8, 8, 8]
+//```
+//
+//---
+//
+//Let me know if you'd like me to walk through a case where some values don’t have a next greater!
